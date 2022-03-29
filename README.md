@@ -12,6 +12,6 @@ To install the needed conda environment, run `conda env create -f jpmap_env.yml`
 Then activate the environment with `conda activate jpmap`.  
 
 The bash script `run_experiments.sh` contains example code for running JPMAP for different inverse problems.  You need 
-to have a pretrained HDN network stored in `pretrained_models/model_name/model.net.
+to have a pretrained HDN network stored in `pretrained_models/model_name/model.net`.
 
 The parameters for running JPMAP are described in `run_algorithms_hdn.py`.

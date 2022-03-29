@@ -1,0 +1,14 @@
+name: jpmap
+channels:
+  - pytorch
+  - defaults
+dependencies:
+  - jupyter
+  - matplotlib
+  - pandas
+  - python>=3.7
+  - pytorch>=1.4
+  - torchvision
+  - scipy
+  - requests
+  - tqdm
