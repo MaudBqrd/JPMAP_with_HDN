@@ -124,7 +124,7 @@ for ind in range(args.n_samples):
 
     # Same initialization for both algorithms
     xinit = torch.matmul(A.T, y).view(1, *x_size)  # JPMAP initialization
-    zinit = [torch.zeros(zdim[i]) for i in range(len(zdim))]  # CSGM initialization
+    zinit = [torch.zeros(zdim[i]).to(device) for i in range(len(zdim))]  # CSGM initialization
 
     # CSGM (Bora et al.)
     args.csgm_lamb = sigma ** 2

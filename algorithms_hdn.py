@@ -350,12 +350,10 @@ def J1_hdn(xE, zE, A, y, sigma, beta, hdn, x_shape):
     with torch.no_grad():
         # Datafit
         DataFit = (0.5 / sigma ** 2) * torch.sum((torch.matmul(A, xE.view(-1)) - y).pow(2))
-        print("datafiit:", DataFit)
 
         # (beta/2)*||xk - Dec(z)||^2
         g_z, data = dec_pass(zE, hdn, x_shape)
         Acople = 0.5 * beta * torch.sum((xE - g_z[0]).pow(2))
-        print('acope', Acople)
 
         # prior
         p_params = data['p_params']
@@ -364,7 +362,6 @@ def J1_hdn(xE, zE, A, y, sigma, beta, hdn, x_shape):
             p_mu, p_lv = p_params[i].chunk(2, dim=1)
             p_sigma = (p_lv / 2).exp()
             Prior += 0.5 * torch.sum(((zE[i] - p_mu)/p_sigma).pow(2))
-        print('prior', Prior)
     return DataFit + Acople + Prior
 
 
